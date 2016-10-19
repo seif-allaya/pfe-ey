@@ -1,0 +1,95 @@
+
+
+<!-- page content -->
+      <div class="right_col" role="main">
+
+        <div class="">
+          <div class="page-title">
+            <div class="title_left">
+              <h3>Reports</h3>
+            </div>
+
+          </div>
+          <div class="clearfix"></div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="x_panel">
+                <div class="x_title">
+
+                  <ul class="nav navbar-right panel_toolbox">
+
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+
+                  <!-- start project list -->
+                  <table class="table table-striped projects">
+                    <thead>
+                      <tr>
+                        <th style="width: 1%"></th>
+                        <th style="width: 10%">Report Name</th>
+                        <th style="width: 17%">Owner</th>
+                        <th style="width: 15%">Project Progress</th>
+                        <th style="width: 5%">Status</th>
+                        <th style="width: 5%">Scoring Type</th>
+                        <th style="width: 27%">Edit</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <% @reports.each do |report| %>
+                      <tr>
+                        <td></td>
+                        <td>
+                          <a><%= report.report_name %></a>
+                          <br />
+                          <small><%= report.date %></small>
+                        </td>
+                        <td>
+                          <ul class="list-inline">
+                              <%= report.owner %>
+                          </ul>
+                        </td>
+                        <td class="project_progress">
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="100"></div>
+                          </div>
+                          <small>100% Complete</small>
+                        </td>
+
+                        <td>
+                          <button type="button" class="btn btn-success btn-xs">Done</button>
+
+                        </td>
+                        <td>
+                          <ul class="list-inline">
+                              <%= report.report_scoring %>
+                          </ul>
+                        </td>
+
+                        <td>
+
+                          <a href="/report/<%= report.id %>/generate" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                          <a href="/report/<%= report.id %>/edit" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                          <a href="/admin/add_user/<%= report.id %>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Add Author </a>
+                          <a href="/report/<%= report.id %>/remove" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                        </td>
+
+                      </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                  <!-- end project list -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+      <!-- /page content -->

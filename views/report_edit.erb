@@ -1,0 +1,153 @@
+<div class="right_col" role="main">
+  <div class="title_left">
+              <h3><%=@report.report_name%></h3>
+            </div>
+
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2><%=@report.report_name%></h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                  <br />
+                  <form class="form-horizontal form-label-left" method="post">
+
+                    <% if @templates.size > 0 %>
+                      <h4>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Modify the information that will appear in the report.
+                      </h4>
+                      <br/>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Scoring Type*</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" name="report_scoring" >
+                            <option selected="selected"><%=@report.report_scoring%></option>
+                          </select>
+
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Report Type</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" name="report_type">
+
+                                  <% @templates.each do |template| %>
+                                    <% if template.finding_template == false and template.status_template == false %>
+                                      <% if template.report_type == @report.report_type %>
+                                        <option selected="selected"><%=template.report_type%></option>
+                                      <% else %>
+                                        <option><%=template.report_type%></option>
+                                      <% end %>
+                                    <% end %>
+                                  <% end %>
+                                </select>
+                              </div>
+                            </div>
+                    <% end %>
+
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Title</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input required="true" type="text" class="form-control" name="report_name" value ="<%=@report.report_name%>">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Full Company Name</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input required="true" type="text" class="form-control" name="full_company_name" value ="<%=@report.full_company_name%>" >
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Short Company Name</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" name="short_company_name" value ="<%=@report.short_company_name%>">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Company Website</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" name="company_website" value ="<%=@report.company_website%>">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Company Address</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" name="contact_address" value ="<%=@report.contact_address%>">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Company City</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" name="contact_city" value ="<%=@report.contact_city%>">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">State</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" name="contact_state" value ="<%=@report.contact_state%>">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Company Zip</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" name="contact_zip" value ="<%=@report.contact_zip%>">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Contact Name</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" name="contact_name" value ="<%=@report.contact_name%>">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Contact E-Mail</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" name="contact_email" value ="<%=@report.contact_email%>">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Contact Title</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" name="contact_title" value ="<%=@report.contact_title%>">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Contact Phone</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" name="contact_phone" value ="<%=@report.contact_phone%>">
+                      </div>
+                    </div>
+
+                    <input name="id" type="hidden" value="<%= @report.id %>"></input>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                      <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                        <button type="cancel" value="Cancel" class="btn btn-primary" href="/reports/list" formnovalidate>Cancel</button>
+                        <button type="submit" class="btn btn-success">Save</button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+        </div>
+
+</div>
